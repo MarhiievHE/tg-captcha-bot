@@ -113,12 +113,18 @@ func challengeUser(m *tb.Message) {
 		log.Println(err)
 	}
 
+	
 	inlineKeys := [][]tb.InlineButton{{tb.InlineButton{
 		Unique: "challenge_btn",
 		Text:   config.ButtonText,
 	}}}
-	challengeMsg, _ := bot.Reply(m, config.WelcomeMessage, &tb.ReplyMarkup{InlineKeyboard: inlineKeys})
-
+	
+	var MyMSG = ""
+	if m.Sender.Username != "" {
+		MyMSG = "@"+m.Sender.Username+" "
+	} 
+	challengeMsg, _ := bot.Reply(m, MyMSG+config.WelcomeMessage, &tb.ReplyMarkup{InlineKeyboard: inlineKeys})
+	
 	n, err := strconv.ParseInt(config.WelcomeTimeout, 10, 64)
 	if err != nil {
 		log.Println(err)
