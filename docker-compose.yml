@@ -12,3 +12,7 @@ services:
     restart: unless-stopped
     environment:
       - TGTOKEN=your_token
+
+networks:
+  default:
+    name: tg-captcha-bot-net
