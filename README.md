@@ -12,6 +12,9 @@ Telegram bot that validates new users that enter supergroup. Validation works li
 
 This bot has been tested on several supergroups (2000+ people) for a long time and has shown its effectiveness against spammers.
 
+## Difference to the original https://github.com/mxssl/tg-captcha-bot
+
+- Added support for showing @username in welcome message.
 
 ## How it works
 
