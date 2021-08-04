@@ -12,9 +12,6 @@ Telegram bot that validates new users that enter supergroup. Validation works li
 
 This bot has been tested on several supergroups (2000+ people) for a long time and has shown its effectiveness against spammers.
 
-## Cloud hosted instance of the bot
-
-[@cloud_tg_captcha_bot](https://t.me/cloud_tg_captcha_bot)
 
 ## How it works
 
@@ -29,7 +26,6 @@ This bot has been tested on several supergroups (2000+ people) for a long time a
 
 - [Option 1 (the easiest one)](./INSTALL-1.md): docker-compose + already built docker container
 - [Option 2](./INSTALL-2.md): docker-compose + build your own docker container
-- [Option 3](./INSTALL-3.md): systemd
 
 ## Commands
 
@@ -37,7 +33,7 @@ This bot has been tested on several supergroups (2000+ people) for a long time a
 
 ## Сustomization
 
-You can change several bot's settings (welcome message, ban duration, socks5 proxy server) through the configuration file `config.toml`
+You can change several bot's settings (welcome message, ban duration, socks5 proxy server, marking welcome message with Username new user if it exist) through the configuration file `config.toml`
 
 ## Contacts
 

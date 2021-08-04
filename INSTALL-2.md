@@ -25,7 +25,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: tg-captcha-bot:latest
+    image: marhiievhe/tg-captcha-bot:latest
+    container_name: tg-captcha-bot
     volumes:
       - ./config.toml:/config.toml
     restart: unless-stopped

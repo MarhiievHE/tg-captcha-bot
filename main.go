@@ -22,6 +22,7 @@ import (
 type Config struct {
 	ButtonText          string `mapstructure:"button_text"`
 	WelcomeMessage      string `mapstructure:"welcome_message"`
+	IsUsernameShow		string `mapstructure:"is_username_show"`
 	AfterSuccessMessage string `mapstructure:"after_success_message"`
 	AfterFailMessage    string `mapstructure:"after_fail_message"`
 	PrintSuccessAndFail string `mapstructure:"print_success_and_fail_messages_strategy"`
@@ -119,11 +120,14 @@ func challengeUser(m *tb.Message) {
 		Text:   config.ButtonText,
 	}}}
 	
-	var MyMSG = ""
-	if m.Sender.Username != "" {
-		MyMSG = "@"+m.Sender.Username+" "
-	} 
-	challengeMsg, _ := bot.Reply(m, MyMSG+config.WelcomeMessage, &tb.ReplyMarkup{InlineKeyboard: inlineKeys})
+	var addUsername = ""
+	if config.IsUsernameShow == "true" {
+		if m.Sender.Username != "" {
+		addUsername = "@"+m.Sender.Username+" "
+		} 
+	}
+	
+	challengeMsg, _ := bot.Reply(m, addUsername+config.WelcomeMessage, &tb.ReplyMarkup{InlineKeyboard: inlineKeys})
 	
 	n, err := strconv.ParseInt(config.WelcomeTimeout, 10, 64)
 	if err != nil {
