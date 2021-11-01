@@ -2,7 +2,7 @@ latest:	build push
 
 
 build:	
-		docker build -t marhiievhe/tg-captcha-bot:latest .
+		docker build --pull --no-cache -t marhiievhe/tg-captcha-bot:latest .
 
 push:	
 		docker push  marhiievhe/tg-captcha-bot:latest 
